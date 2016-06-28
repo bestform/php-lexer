@@ -59,6 +59,7 @@ func initTokens() {
 		"NAME",
 		"VAR",
 		"NUMBER",
+		"STRING",
 	}
 	Tokens = append(Tokens, Literals...)
 	Tokens = append(Tokens, Keywords...)
@@ -84,6 +85,7 @@ func initLexer() (*lex.Lexer, error) {
 	lexer.Add([]byte(`//([^\n\r])*`), token("COMMENT"))
 	lexer.Add([]byte(`\$([a-z]|[A-Z]|[0-9])*`), token("VAR"))
 	lexer.Add([]byte(`([0-9]|\.)*`), token("NUMBER"))
+	lexer.Add([]byte(`("[^"]*")|('[^']*')`), token("STRING"))
 	lexer.Add([]byte(`([a-z]|[A-Z]|[0-9]|\\)*`), token("NAME"))
 
 	lexer.Add([]byte("( |\t|\n|\r)+"), skip)

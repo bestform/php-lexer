@@ -26,6 +26,9 @@ func TestParse(t *testing.T) {
 		{"numbers",
 			"123 3.45",
 			[]string{`NUMBER`, `NUMBER`}},
+		{"strings",
+			`"foo" 'bar'`, // @todo: escaping quotes
+			[]string{`STRING`, `STRING`}},
 		{"variables",
 			"$foo $bar",
 			[]string{`VAR`, `VAR`}},
