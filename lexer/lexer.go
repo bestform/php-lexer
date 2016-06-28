@@ -41,6 +41,11 @@ func initTokens() {
 		"PUBLIC",
 		"PROTECTED",
 		"RETURN",
+		"USE",
+		"EXTENDS",
+		"IMPLEMENTS",
+		"TRUE",
+		"FALSE",
 	}
 	Tokens = []string{
 		"COMMENT",
@@ -74,7 +79,7 @@ func initLexer() (*lex.Lexer, error) {
 	lexer.Add([]byte(`//([^\n\r])*`), token("COMMENT"))
 	lexer.Add([]byte(`\$([a-z]|[A-Z]|[0-9])*`), token("VAR"))
 	lexer.Add([]byte(`([0-9]|\.)*`), token("NUMBER"))
-	lexer.Add([]byte(`([a-z]|[A-Z]|[0-9])*`), token("NAME"))
+	lexer.Add([]byte(`([a-z]|[A-Z]|[0-9]|\\)*`), token("NAME"))
 
 	lexer.Add([]byte("( |\t|\n|\r)+"), skip)
 
