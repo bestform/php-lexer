@@ -12,9 +12,30 @@ func TestParse(t *testing.T) {
 		Name, Input   string
 		ExpectedTypes []string
 	}{
-		{"Brackets", "(){}", []string{`(`, `)`, `{`, `}`}},
-		{"Misc", "=,;", []string{`=`, `,`, `;`}},
-		{"php tag and arrow", "-><?php", []string{`->`, `<?php`}},
+		{"Brackets",
+			"(){}",
+			[]string{`(`, `)`, `{`, `}`}},
+		{"Punctuation",
+			"=,;",
+			[]string{`=`, `,`, `;`}},
+		{"php tag and arrow",
+			"-><?php",
+			[]string{`->`, `<?php`}},
+		{"numbers",
+			"123 3.45",
+			[]string{`NUMBER`, `NUMBER`}},
+		{"variables",
+			"$foo $bar",
+			[]string{`VAR`, `VAR`}},
+		{"comments",
+			`
+		 // line comment
+		 /* block comment */
+		 /** doc block comment */
+		 `, []string{`COMMENT`, `BLOCKCOMMENT`, `DOCCOMMENT`}},
+		{"key words",
+			"return function private protected public class",
+			[]string{`RETURN`, `FUNCTION`, `PRIVATE`, `PROTECTED`, `PUBLIC`, `CLASS`}},
 	}
 
 	for _, c := range cases {
