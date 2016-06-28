@@ -18,8 +18,8 @@ func TestParse(t *testing.T) {
 			"(){}",
 			[]string{`(`, `)`, `{`, `}`}},
 		{"Punctuation",
-			"=,;",
-			[]string{`=`, `,`, `;`}},
+			"=,;<>++--",
+			[]string{`=`, `,`, `;`, `<`, `>`, `++`, `--`}},
 		{"php tag and arrow",
 			"-><?php",
 			[]string{`->`, `<?php`}},
@@ -36,8 +36,8 @@ func TestParse(t *testing.T) {
 		 /** doc block comment */
 		 `, []string{`COMMENT`, `BLOCKCOMMENT`, `DOCCOMMENT`}},
 		{"key words",
-			"use return function private protected public class extends implements true false",
-			[]string{`USE`, `RETURN`, `FUNCTION`, `PRIVATE`, `PROTECTED`, `PUBLIC`, `CLASS`, `EXTENDS`, `IMPLEMENTS`, `TRUE`, `FALSE`}},
+			"use return function private protected public class extends implements true false for",
+			[]string{`USE`, `RETURN`, `FUNCTION`, `PRIVATE`, `PROTECTED`, `PUBLIC`, `CLASS`, `EXTENDS`, `IMPLEMENTS`, `TRUE`, `FALSE`, `FOR`}},
 	}
 
 	for _, c := range cases {

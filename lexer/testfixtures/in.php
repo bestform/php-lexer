@@ -12,6 +12,10 @@ class Baz extends \Base implements \BaseInterface {
     // comment
     $s = $a;
 
+    for ($a = 1; $a < 5; $a++) {
+      // no op
+    }
+
     return true;
   }
 
@@ -45,6 +49,22 @@ VAR
 =
 VAR
 ;
+FOR
+(
+VAR
+=
+NUMBER
+;
+VAR
+<
+NUMBER
+;
+VAR
+++
+)
+{
+COMMENT
+}
 RETURN
 TRUE
 ;

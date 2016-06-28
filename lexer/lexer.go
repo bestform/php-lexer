@@ -33,6 +33,10 @@ func initTokens() {
 		";",
 		"->",
 		"<?php",
+		"++",
+		"--",
+		">",
+		"<",
 	}
 	Keywords = []string{
 		"CLASS",
@@ -46,6 +50,7 @@ func initTokens() {
 		"IMPLEMENTS",
 		"TRUE",
 		"FALSE",
+		"FOR",
 	}
 	Tokens = []string{
 		"COMMENT",
