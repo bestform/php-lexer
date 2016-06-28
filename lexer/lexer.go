@@ -1,32 +1,5 @@
 package lexer
 
-/*
-tokens for now:
-
-CLASS: class
-TYPE: classname
-IMPLEMENTS: implements
-EXTENDS: extends
-LEFTCURLY: {
-RIGHTCURLY: }
-LEFTBRACKET: (
-RIGHTBRACKET: )
-VARIABLE: $foo
-EQ: =
-COMMENTSTART: //
-BLOCKCOMMENTSTART: /*
-DOCBOCKSTART: /**
-INNERBLOCKCOMMENTSTART: /
-STRING: "foobar"
-SQSTRING: 'foobar'
-PLUS: +
-MINUS: -
-DIVIDE: /
-MULTIPLY: *
-NUMBER: 1234
-SEMI: ;
-
-*/
 import (
 	"strings"
 
